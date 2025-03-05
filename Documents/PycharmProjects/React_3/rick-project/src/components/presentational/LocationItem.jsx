@@ -1,9 +1,15 @@
 export const LocationItem = ({ location }) => {
     return (
       <div className="location-item">
-        <p>Тип: {location.type}</p>
-        <p>Измерение: {location.dimension}</p>
-        <p>Количество жителей: {location.residents.length}</p>
+        <p>
+          <strong>Тип: </strong> {location.type}
+        </p>
+        <p>
+          <strong>Измерение: </strong> {location.dimension}
+        </p>
+        <p>
+          <strong>Количество жителей: </strong> {location.residents.length}
+        </p>
       </div>
     );
   };
