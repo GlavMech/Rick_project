@@ -1,9 +1,14 @@
-export const fetchEpisodes = () => {
-  return fetch("https://rickandmortyapi.com/api/episode")
-    .then((response) => response.json())
-    .then((data) => {
-      return data.results;
-    });
+export const fetchEpisodes = async () => {
+  let episodes = [];
+  let url = "https://rickandmortyapi.com/api/episode"; 
+
+  while (url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    episodes = [...episodes, ...data.results];
+    url = data.info.next; 
+  }
+  return episodes; 
 };
 
 export const fetchCharacters = async (ids) => {
